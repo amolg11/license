@@ -2,7 +2,7 @@ spring:
   application:
     name: licensing-service
   datasource:
-    url: jdbc:mysql://host.docker.internal:3306/mydatabase
+    url: jdbc:mysql://localhost:3306/mydatabase
     username: amol
     password: 7700#Kpit
     driver-class-name: com.mysql.cj.jdbc.Driver
