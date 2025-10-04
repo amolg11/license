@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: licensing-service
+  datasource:
+    url: jdbc:mysql://host.docker.internal:3306/mydatabase
+    username: amol
+    password: 7700#Kpit
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+    show-sql: true
+
+
+management:
+  endpoint:
+    web:
+      base-path: /
+    enabled-by-default: false
+    health:
+      enabled: true
+  health:
+    db:
+      enabled: true
