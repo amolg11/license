@@ -23,11 +23,14 @@ spring:
 
 
 management:
-  endpoint:
-    web:
-      base-path: /
-      include: refresh
+  endpoints:
     enabled-by-default: false
+    web:
+      exposure:
+        include: refresh
+  endpoint:
+    refresh:
+      enabled: true
     health:
       enabled: true
   health:
