@@ -26,7 +26,7 @@ management:
   endpoint:
     web:
       base-path: /
-      include: "*"
+      include: refresh
     enabled-by-default: false
     health:
       enabled: true
