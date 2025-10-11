@@ -10,6 +10,9 @@ spring:
     openfeign:
       circuitbreaker:
         enabled: true
+    loadbalancer:
+      retry:
+        enabled: true    
   jpa:
     hibernate:
       ddl-auto: none
