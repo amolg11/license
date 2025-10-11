@@ -23,7 +23,7 @@ management:
   endpoint:
     web:
       base-path: /
-      include: *
+      include: "*"
     enabled-by-default: false
     health:
       enabled: true
