@@ -6,7 +6,10 @@ spring:
     username: amol
     password: 7700#Kpit
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
   jpa:
     hibernate:
       ddl-auto: none
