@@ -60,6 +60,7 @@ resilience4j.circuitbreaker:
       recordExceptions:
         - org.springframework.web.client.HttpServerErrorException
         - java.io.IOException
+        - java.util.concurrent.TimeoutException
       ignoreExceptions:
         - org.springframework.web.client.HttpClientErrorException$NotFound
     organizationService:
