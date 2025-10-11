@@ -35,3 +35,75 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8070/eureka/
+
+
+resilience4j.circuitbreaker:
+  instances:
+    licenseServiceCircuitBreaker:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      waitDurationInOpenState: 10000
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.io.IOException
+      ignoreExceptions:
+        - org.springframework.web.client.HttpClientErrorException$NotFound
+    organizationService:
+      registerHealthIndicator: true
+      ringBufferSizeInClosedState: 6
+      ringBufferSizeInHalfOpenState: 4
+      waitDurationInOpenState: 20s
+      failureRateThreshold: 60             
+
+
+resilience4j.bulkhead:
+  instances:
+    licenseServiceBulkhead:
+      maxConcurrentCalls: 20
+      maxWaitDuration: 0
+    organizationService:
+      maxConcurrentCalls: 30
+      maxWaitDuration: 0
+
+resilience4j.threadpoolbulkhead:
+  instances:
+    licenseServiceThreadPoolBulkhead:
+      coreThreadPoolSize: 10
+      maxThreadPoolSize: 20
+      queueCapacity: 30
+    organizationService:
+      coreThreadPoolSize: 5
+      maxThreadPoolSize: 10
+      queueCapacity: 20
+
+resilience4j.retry:
+  instances:
+    licenseServiceRetry:
+      maxAttempts: 3
+      waitDuration: 5000
+      retryExceptions:
+        - java.io.IOException
+        - org.springframework.web.client.HttpServerErrorException
+      ignoreExceptions:
+        - org.springframework.web.client.HttpClientErrorException$NotFound
+    organizationService:
+      maxAttempts: 4
+      waitDuration: 2000
+      retryExceptions:
+        - java.io.IOException
+        - org.springframework.web.client.HttpServerErrorException
+
+resilience4j.rateLimiter:
+  instances:
+    licenseServiceRateLimiter:
+      limitForPeriod: 10
+      limitRefreshPeriod: 1s
+      timeoutDuration: 0
+    organizationService:
+      limitForPeriod: 5
+      limitRefreshPeriod: 1s
+      timeoutDuration: 0                    
