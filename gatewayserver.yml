@@ -11,13 +11,18 @@ eureka:
 spring:
   cloud:
     gateway:
-      discovery.locator:
-        enabled: true
-        lower-case-service-id: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+      base-path: /actuator        
+  endpoint:
+    gateway:
+      enabled: true 
 
        
