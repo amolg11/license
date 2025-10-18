@@ -13,5 +13,11 @@ spring:
     gateway:
       discovery.locator:
         enabled: true
-
+management:
+  endpoint:
+    web:
+      base-path: /
+    enabled-by-default: false
+    health:
+      enabled: true
        
