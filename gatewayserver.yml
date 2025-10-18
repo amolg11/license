@@ -14,10 +14,9 @@ spring:
       discovery.locator:
         enabled: true
 management:
-  endpoint:
+  endpoints:
     web:
-      base-path: /
-    enabled-by-default: false
-    health:
-      enabled: true
+      exposure:
+        include: "*"
+
        
