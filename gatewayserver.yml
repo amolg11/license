@@ -23,6 +23,12 @@ management:
       base-path: /actuator        
   endpoint:
     gateway:
-      enabled: true 
+      enabled: true
+
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.optimagrowth: DEBUG      
 
        
