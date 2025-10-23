@@ -16,7 +16,7 @@ spring:
           enabled: true
           lowerCaseServiceId: true
       default-filters:
-        - PreserveHostHeader
+        - TokenRelay
 management:
   endpoints:
     web:
